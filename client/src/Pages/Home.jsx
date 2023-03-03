@@ -19,9 +19,10 @@ const Home = () => {
      const [loading, setLoading] = useState(false);
      const [allPosts, setAllPosts] = useState([]);
 
+     const [isSearch, setIsSearch] = useState(false);
      const [searchText, setSearchText] = useState('');
      const [searchTimeout, setSearchTimeout] = useState(null);
-     const [searchedResults, setSearchedResults] = useState([]);     
+     const [searchedResults, setSearchedResults] = useState([]);   
 
      const fetchPosts = async () => {
           setLoading(true);
@@ -58,6 +59,8 @@ const Home = () => {
 
           setSearchText(e.target.value);
 
+          (searchText !== "" || searchText.length >= 0) ? setIsSearch(true) : setIsSearch(false);
+
           setSearchTimeout(
                setTimeout(() => {
                     const searchResults = allPosts.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
@@ -81,10 +84,11 @@ const Home = () => {
                     placeholder="Search post"
                     value={searchText}
                     handleOnChange={handleSearchChange}
-                    isSearch
+                    isSearch={isSearch}
+                    searchBar
                />
 
-               <div className="mt-10">
+               <div className="my-10">
                     {
                          loading ? (
                               <div className="flex justify-center items-center">

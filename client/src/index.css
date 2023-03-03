@@ -48,3 +48,8 @@ body {
 .card:hover img {
   @apply opacity-50;
 }
+
+.translate-custom {
+  top: 50%;
+  transform: translate(-50%, -50%) !important;
+}

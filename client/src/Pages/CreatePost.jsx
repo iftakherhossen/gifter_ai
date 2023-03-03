@@ -88,7 +88,7 @@ const CreatePost = () => {
      };
 
      return (
-          <section className="max-w-7xl mx-auto lg:p-3">
+          <section className="max-w-7xl mx-auto lg:p-3 h-auto">
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <div className="p-3">
                          <div className="mb-6 md:mb-10">
@@ -153,7 +153,7 @@ const CreatePost = () => {
                          </div>
                     </div>
                </div>
-               <form className="mt-10 flex flex-col justify-center items-center w-full" onSubmit={handleSubmit}>
+               <form className="mt-16 flex flex-col justify-center items-center w-full" onSubmit={handleSubmit}>
                     <p className="text-[#666e75] text-[14px]">N.B. Once you have created the image you want, you can share it with others in the community!</p>
                     <button type="submit" className="mt-5 w-full max-w-md text-white bg-[#6469ff] font-medium rounded-md px-5 py-2.5 text-center">
                          {loading ? "Sharing..." : "Share with the community"}

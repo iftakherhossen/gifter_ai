@@ -2,7 +2,7 @@ import { Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Navigation, Footer } from './Components';
-import { CreatePost, Home } from './Pages';
+import { CreatePost, Home, NotFound } from './Pages';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/create-post" element={<CreatePost />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormField = ({ labelName, type, name, placeholder, value, handleOnChange, isSurpriseMe, handleSurpriseMe }) => (
+const FormField = ({ labelName, type, name, placeholder, value, handleOnChange, isSurpriseMe, handleSurpriseMe, isSearch, searchBar }) => (
      <div>
           <div className="flex items-center gap-2 mb-2">
                <label htmlFor={name} className="block text-lg font-bold text-gray-900 pl-2">
@@ -14,16 +14,25 @@ const FormField = ({ labelName, type, name, placeholder, value, handleOnChange, 
                     )
                }
           </div>
-          <input
-               type={type ? type : "text"}
-               id={name}
-               name={name}
-               placeholder={placeholder}
-               defaultValue={value}
-               onChange={handleOnChange}
-               required
-               className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3 font-medium"
-          />
+          <div className="relative">
+               <input
+                    type={type ? type : "text"}
+                    id={name}
+                    name={name}
+                    placeholder={placeholder}
+                    defaultValue={value}
+                    onChange={handleOnChange}
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3 font-medium"
+               /> 
+               {
+                    searchBar === true && (isSearch === false ? <button className="absolute right-1 my-auto translate-custom text-xl">
+                         <i className="ri-search-line"></i>
+                    </button> : <button className="absolute right-1 my-auto translate-custom text-xl" onClick={() => window.location.reload()}>
+                         <i className="ri-close-line"></i>
+                    </button>)
+               }
+          </div>
      </div>
 );
 
