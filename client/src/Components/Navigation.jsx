@@ -5,8 +5,8 @@ import { logo } from '../assets';
 
 const Navigation = () => {
      return (
-          <header className="w-full bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4] sticky top-0 z-20 shadow-sm">
-               <div className="container mx-auto flex justify-between items-center">
+          <header className="bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4] sticky top-0 z-20 shadow-sm">
+               <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <Link to="/">
                          <img
                               src={logo}

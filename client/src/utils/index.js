@@ -1,4 +1,5 @@
 import FileSaver from 'file-saver';
+import toast from 'react-hot-toast';
 
 import { surpriseMePrompts } from '../constants';
 
@@ -14,4 +15,5 @@ export function getRandomPrompt(prompt) {
 
 export async function downloadImage(_id, photo) {
      FileSaver.saveAs(photo, `gifter-${_id}.jpg`);
+     toast.success('Image downloaded successfully!')
 }

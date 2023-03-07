@@ -23,7 +23,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleOnChange, 
                     defaultValue={value}
                     onChange={handleOnChange}
                     required
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3 font-medium"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-xl focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3 font-medium"
                /> 
                {
                     searchBar === true && (isSearch === false ? <button className="absolute right-1 my-auto translate-custom text-xl">

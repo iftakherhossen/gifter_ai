@@ -5,7 +5,7 @@ import { Card, FormField, Loader } from '../Components';
 
 const RenderCards = ({ data, title }) => {
      if (data?.length > 0) {
-          return data.map((post) => <Card key={post._id} {...post} />)
+          return data.slice(0, 20).map((post) => <Card key={post._id} {...post} />)
      }
 
      return (
@@ -28,7 +28,7 @@ const Home = () => {
           setLoading(true);
 
           try {
-               const response = await fetch(`${process.env.SERVER_LINK}/api/v1/post`, {
+               const response = await fetch('http://localhost:8080/api/v1/post', {
                     method: 'GET',
                     headers: {
                          'Content-Type': 'application/json',
@@ -43,7 +43,8 @@ const Home = () => {
 
           }
           catch (error) {
-               toast.error(error);
+               toast.error('Failed to fetch data!');
+               console.log(error);
           }
           finally {
                setLoading(false);

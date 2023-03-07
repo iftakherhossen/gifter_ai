@@ -1,4 +1,5 @@
-import { Toaster } from 'react-hot-toast';
+import { useEffect, useState } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Navigation, Footer } from './Components';

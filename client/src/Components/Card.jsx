@@ -1,5 +1,5 @@
-import React from 'react';
 import 'animate.css';
+import React from 'react';
 
 import { download } from '../assets';
 import { downloadImage } from '../utils';
@@ -15,9 +15,11 @@ const Card = ({ _id, name, prompt, photo }) => {
                               <div className="w-9 h-9 relative flex justify-center items-center rounded-full bg-green-700 text-xl text-white uppercase font-bold select-none">{name[0]}</div>
                               <p className="text-white text-base select-none font-semibold">{name}</p>
                          </div>
-                         <button type="button" onClick={() => downloadImage(_id, photo)} className="outline-none bg-transparent border-none">
-                              <img src={download} alt="download" className="w-7 h-7 object-contain invert" draggable={false} />
-                         </button>
+                         <div className="flex items-center gap-2.5">
+                              <button type="button" onClick={() => downloadImage(_id, photo)} className="outline-none bg-transparent border-none">
+                                   <img src={download} alt="download" className="w-7 h-7 object-contain invert" draggable={false} />
+                              </button>
+                         </div>
                     </div>
                </div>
           </div>

@@ -21,7 +21,7 @@ const CreatePost = () => {
           if (form.prompt) {
                try {
                     setGeneratingImg(true);
-                    const response = await fetch(`${process.env.SERVER_LINK}/api/v1/gifter`, {
+                    const response = await fetch('http://localhost:8080/api/v1/gifter', {
                          method: 'POST',
                          headers: {
                               'Content-Type': 'application/json',
@@ -36,7 +36,8 @@ const CreatePost = () => {
                     setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` })
                }
                catch (error) {
-                    toast.error(error)
+                    toast.error('error');
+                    console.log(error);
                }
                finally {
                     setGeneratingImg(false);
@@ -63,7 +64,7 @@ const CreatePost = () => {
                setLoading(true);
 
                try {
-                    const response = await fetch(`${process.env.SERVER_LINK}/api/v1/post`, {
+                    const response = await fetch('http://localhost:8080/api/v1/post', {
                          method: 'POST',
                          headers: {
                               'Content-Type': 'application/json'
@@ -75,7 +76,7 @@ const CreatePost = () => {
                     navigate('/');              
                } 
                catch (error) {
-                    toast.error(error)
+                    toast.error('Failed to shared the post!');
                }
                finally {
                     setLoading(false);
@@ -83,7 +84,7 @@ const CreatePost = () => {
                }
           }
           else {
-               toast.error('Please fill up all the fields!')
+               toast.error('Please fill up all the fields!');
           }
      };
 

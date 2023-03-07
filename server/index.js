@@ -12,8 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
-app.use('/api/v1/post', postRoutes)
-app.use('/api/v1/gifter', gifterRoutes)
+app.use('/api/v1/post', postRoutes);
+app.use('/api/v1/gifter', gifterRoutes);
+
+const port = process.env.PORT || 8080;
 
 app.get('/', async (req, res) => {
      res.send("Hello from Gifter Server!")
@@ -22,7 +24,7 @@ app.get('/', async (req, res) => {
 const startServer = async () => {
      try {
           connectDB(process.env.MONGODB_URL);
-          app.listen(8080, () => console.log('Server has started at port http://localhost:8080'))
+          app.listen(port, () => console.log(`Server has started at port http://localhost:${port}`));          
      }
      catch (error) {
           console.log(error);
