@@ -27,6 +27,10 @@ body {
   border-radius: 5px;
 }
 
+.cardPrompt::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   @apply bg-[#6469ff] text-white;
 }
