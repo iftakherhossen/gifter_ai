@@ -12,10 +12,12 @@
     "animate.css": "^4.1.1",
     "file-saver": "^2.0.5",
     "firebase": "^9.17.2",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.8.2",
+    "react-web-share": "^2.0.2",
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@
 }
 
 body {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   transition: 0.3s all ease-in-out;
 }
 
