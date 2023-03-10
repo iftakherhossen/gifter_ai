@@ -45,14 +45,15 @@ const SinglePost = () => {
 
      const post = allPosts.find(post => post._id === params.id);
 
-     const [like, setLike] = useState(parseInt(post?.likes));
+     let initialLike = post?.likes;
+     const [like, setLike] = useState(initialLike);
      const [isLiked, setIsLiked] = useState(false);
 
      const handleLike = () => {
           if (isLiked) {
-               setLike(like - 1);
+               initialLike - 1;
           } else {
-               setLike(like + 1);
+               initialLike + 1;
           }
           setIsLiked(!isLiked);
      };
@@ -64,6 +65,7 @@ const SinglePost = () => {
      }
 
      console.log(post);
+     console.log(like);
 
      return (
           <section className="max-w-7xl mx-auto p-2.5 md:p-0 overflow-x-hidden">
@@ -130,11 +132,11 @@ const SinglePost = () => {
                                         </div>
                                         <div className="flex justify-between text-black text-base font-semibold opacity-90">
                                              <div className="flex flex-col">
-                                                  <p>Liked by {kFormatter(like ? like : 1580)} people</p>
-                                                  <p className="text-gray-700">{moment(post?.timestamps ? post.timestamps : "2023-03-10T12:50:59+06:00", "YYYYMMDD").fromNow()}</p>
+                                                  <p>Liked by {kFormatter(initialLike)} people</p>
+                                                  <p className="text-gray-700">{moment(post?.timestamps).fromNow()}</p>
                                              </div>
                                              <div>
-                                                  <p>{post?.downloads ? post.downloads : 100}</p>
+                                                  <p>{kFormatter(post?.downloads)}</p>
                                              </div>
                                         </div>
                                    </div>
