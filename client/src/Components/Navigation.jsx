@@ -15,13 +15,13 @@ const Navigation = () => {
                               draggable={false}
                          />
                     </Link>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">                         
+                         <Link to="/saved-posts" className="h-10 font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md flex justify-center items-center">
+                              <i className="ri-heart-line text-xl"></i> 
+                         </Link>
                          <Link to="/create-post" className="h-10 font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md">
                               Create
                          </Link>
-                         {/* <Link to="/saved-posts" className="h-10 font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md flex justify-center items-center">
-                              <i className="ri-heart-line text-xl"></i> 
-                         </Link> */}
                     </div>
                </div>
           </header>

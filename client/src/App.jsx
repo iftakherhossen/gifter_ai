@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Navigation, Footer } from './Components';
 import ScrollToTop from './Components/ScrollToTop';
-import { CreatePost, Home, NotFound, SinglePost } from './Pages';
+import { CreatePost, Home, NotFound, SavedPosts, SinglePost } from './Pages';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/post/:id" element={<SinglePost />} />
+            <Route path="/saved-posts" element={<SavedPosts />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

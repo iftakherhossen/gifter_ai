@@ -5,7 +5,7 @@ import { Card, FormField, Loader } from '../Components';
 
 const RenderCards = ({ data, title }) => {
      if (data?.length > 0) {
-          return data.slice(0, 20).map((post) => <Card key={post._id} {...post} />)
+          return data.map((post) => <Card key={post._id} {...post} />)
      }
 
      return (
@@ -18,14 +18,25 @@ const RenderCards = ({ data, title }) => {
 const Home = () => {
      const [loading, setLoading] = useState(false);
      const [allPosts, setAllPosts] = useState([]);
+     const [hasMore, setHasMore] = useState(true);
+     const [page, setPage] = useState(1);
 
      const [isSearch, setIsSearch] = useState(false);
      const [searchText, setSearchText] = useState('');
      const [searchTimeout, setSearchTimeout] = useState(null);
      const [searchedResults, setSearchedResults] = useState([]);
 
-     const fetchPosts = async () => {
+     const fetchPosts = async (page) => {
+          const newItems = [];
           setLoading(true);
+
+          for (let i = 0; i < 100; i++) {
+               newItems.push(i)
+          }
+
+          if (page === 100) {
+               setHasMore(false)
+          }
 
           try {
                const response = await fetch(`${import.meta.env.VITE_SERVER_LINK}/api/v1/post`, {
@@ -51,7 +62,7 @@ const Home = () => {
      }
 
      useEffect(() => {
-          fetchPosts();
+          fetchPosts(page);
      }, []);
 
      const handleSearchChange = (e) => {
